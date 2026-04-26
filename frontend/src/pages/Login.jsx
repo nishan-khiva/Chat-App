@@ -17,12 +17,12 @@ const Login = () => {
         form
       );
 
-      localStorage.setItem(
+      sessionStorage.setItem(
         "token",
         data.token
       );
 
-      localStorage.setItem(
+      sessionStorage.setItem(
         "user",
         JSON.stringify(data.user)
       );
