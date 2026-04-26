@@ -52,7 +52,7 @@ MongoDB Atlas
 
 
     Installation
-    git clone https://github.com/yourusername/quickchat.git
+    git clone https://github.com/nishan-khiva/Chat-App.git
 
     Backend Setup
     cd backend
