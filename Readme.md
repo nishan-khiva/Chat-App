@@ -50,26 +50,6 @@ Vercel
 Render
 MongoDB Atlas
 
-Project Structure
-
-quickchat/
-│
-├── backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── socket/
-│   └── server.js
-│
-└── frontend/
-    ├── src/
-    │   ├── components/
-    │   ├── pages/
-    │   ├── context/
-    │   ├── services/
-    │   └── socket/
 
     Installation
     git clone https://github.com/yourusername/quickchat.git
