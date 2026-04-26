@@ -19,12 +19,9 @@ const Home = () => {
   useEffect(() => {
     socket.emit("join", user._id);
 
-    socket.on(
-      "onlineUsers",
-      (users) => {
-        setOnlineUsers(users);
-      }
-    );
+    socket.on("onlineUsers", (users) => {
+      setOnlineUsers(users);
+    });
 
     return () => {
       socket.off("onlineUsers");
@@ -32,17 +29,36 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="h-screen flex">
-      <Sidebar
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-        onlineUsers={onlineUsers}
-      />
+    <div className="h-screen bg-gray-900 flex overflow-hidden">
+      {/* Mobile Sidebar Hide */}
+      <div
+        className={`${
+          selectedUser
+            ? "hidden md:block"
+            : "block"
+        } w-full md:w-[35%] lg:w-[30%]`}
+      >
+        <Sidebar
+          selectedUser={selectedUser}
+          setSelectedUser={setSelectedUser}
+          onlineUsers={onlineUsers}
+        />
+      </div>
 
-      <ChatBox
-        selectedUser={selectedUser}
-        user={user}
-      />
+      {/* Chat Section */}
+      <div
+        className={`${
+          !selectedUser
+            ? "hidden md:flex"
+            : "flex"
+        } flex-1`}
+      >
+        <ChatBox
+          selectedUser={selectedUser}
+          setSelectedUser={setSelectedUser}
+          user={user}
+        />
+      </div>
     </div>
   );
 };
